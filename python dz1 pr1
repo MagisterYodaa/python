@@ -1,0 +1,39 @@
+import threading #Импортировал библиотеку 
+import time  #Импортировал библиотеку 
+
+def function_A(): #Обозначил фенкцию (так же в нижних строках)
+	print (threading.currentThread().getName()+str('-->Piter\ HI \n')) #вывел поток с приставкой Piter
+	time.sleep(2) #Задал время вывода функции 
+	print (threading.currentThread().getName()+str( '-->Piter\How old are you \n'))
+	time.sleep(2)#Задал время вывода функции 
+
+def function_B(): #Обозначил функцию 
+	print (threading.currentThread().getName()+str('-->Sara\Hiii \n'))#вывел поток с приставкой Sara
+	time.sleep(4)#Задал время вывода функции 
+	print (threading.currentThread().getName()+str( '-->Sara\ 24 \n'))
+	time.sleep(4)#Задал время вывода функции 
+
+def function_C():
+	print (threading.currentThread().getName()+str('-->Piter\My son is the same age as you \n'))
+	time.sleep(4)#Задал время вывода функции 
+	print (threading.currentThread().getName()+str( '-->Piter\Let me introduce you \n'))
+	time.sleep(2)#Задал время вывода функции 
+
+def function_D():
+	print (threading.currentThread().getName()+str('-->Sara\It would be great \n'))
+	time.sleep(4)#Задал время вывода функции 
+	print (threading.currentThread().getName()+str( '-->Sara\Take me to him \n'))
+	time.sleep(2)#Задал время вывода функции 
+
+if __name__ == "__main__":
+	
+	t1 = threading.Thread(name='function_A', target=function_A)
+	t2 = threading.Thread(name='function_B', target=function_B)   #Объявил t1 которая равна нашим функциям
+	t3 = threading.Thread(name='function_C',target=function_C)
+	t4 = threading.Thread(name='function_D',target=function_D)
+	
+	function_A()
+	function_B()    #Запустил наши функци 
+	function_C()
+	function_D()
+
